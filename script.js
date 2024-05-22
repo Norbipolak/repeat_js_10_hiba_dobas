@@ -106,4 +106,7 @@ try {
 
 
 Így lehet errormessage-t objektum formájában csinálni!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Függvénynél mindig kell, hogy throw, akár egy objektumot csináltunk, akár egy tömbbe gyüjtjük össze akkor azt throw-oljuk 
+és mindig a try-catch blokkban a meghívást tesszük bele!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 */
