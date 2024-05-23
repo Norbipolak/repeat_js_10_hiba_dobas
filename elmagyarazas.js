@@ -142,3 +142,93 @@ try {
 }
 
 //itt meg ezt -> { code: 404, message: 'Not Found', direct: 'https://domain.hu/404' }
+/******************************************************************************************************************************************/ 
+
+const vowels = ["a", "e", "i", "o", "u", "á", "é", "í", "ó", "ö", "ő", "ú", "ü", "ű"];
+
+const index = vowels.findIndex((i)=> i === "é"); //ha meg ez nem lenne benne, akkor visszaad -1-et!!!! 
+console.log(index);//6 
+
+
+const index2 = vowels.indexOf("é");
+console.log(index2);  // Output: 6
+
+/*
+a findIndex vár egy callBack function-t az indexOf ugyanugy, mint az includes csak egy értéket 
+*/
+
+const index3 = vowels.includes("á");
+console.log(index3); //true
+
+const newArrayWithoutIndex = vowels.splice(index, 1);
+console.log(newArrayWithoutIndex); //["é"];
+/*
+nagyon fontos, hogy a slice() az módosítja az eredeti tömböt, szóval ott ki lesz szedve az "é" 
+és itt az új tömbbe pedig csak egy "é" lesz benne szóval, ahogy az csináljuk órán is, mindig az original tömbbel kell továbbmenni nem az újjal
+*/
+
+//viszont ha azt szeretnénk, hogy az original tömb az ne változzon, akkor használhatunk filter-t ahol megadjuk, hogy az é ne legyen benne 
+const vowels2 = ["a", "e", "i", "o", "u", "á", "é", "í", "ó", "ö", "ő", "ú", "ü", "ű"];
+
+const newArrayWithoutIndex2 = vowels.filter(vowel => vowel !== "é");
+console.log(newArrayWithoutIndex2);  // Output: ["a", "e", "i", "o", "u", "á", "í", "ó", "ö", "ő", "ú", "ü", "ű"]
+console.log(vowels);  // Original array remains unchanged
+
+/*
+és ilyenkor megmarad az eredeti tömb minden értékkel, de viszont lesz egy új tömb is minden értékkel az é-n kivül!!!! 
+******************************************************************************************************************
+*/
+const vowels3 = ["a", "e", "i", "o", "u", "á", "é", "í", "ó", "ö", "ő", "ú", "ü", "ű"];
+
+const index5 = vowels.findIndex((i) => i === "é");
+const newArrayWithoutIndex3 = vowels3.slice(0, index5).concat(vowels3.slice(index5 + 1));
+console.log(newArrayWithoutIndex3);  // Output: ["a", "e", "i", "o", "u", "á", "í", "ó", "ö", "ő", "ú", "ü", "ű"]
+console.log(vowels3);  // Original array remains unchanged
+
+/*
+splice-val hozzá is tudunk adni dolgokat nem csak kitörölni!! 
+*/
+
+//törlés 
+let array = [1, 2, 3, 4, 5];
+let removed = array.splice(2, 1); // Start at index 2, remove 1 element
+console.log(array);    // Output: [1, 2, 4, 5]
+console.log(removed);  // Output: [3]
+
+//hozzáadás 
+/*
+let array = [1, 2, 3, 4, 5];
+array.splice(2, 0, 'a', 'b'); // Start at index 2, remove 0 elements, add 'a' and 'b'
+console.log(array);  // Output: [1, 2, 'a', 'b', 3, 4, 5]
+*/
+
+//kicserélés
+/*
+let array = [1, 2, 3, 4, 5];
+array.splice(2, 2, 'a', 'b'); // Start at index 2, remove 2 elements, add 'a' and 'b'
+console.log(array);  // Output: [1, 2, 'a', 'b', 5]
+*/
+
+/*
+Különbség a slice és splice, hogy a slice-nál az eredeti tömb az módosítva lesz még a slice-nál nem!!
+meg, hogy a slice-nál meg kell adni, hogy mettől meddig!! 
+splice-nál meg azt adjuk meg hogy mettől hányat!!! 
+*/
+
+//slice
+let array2 = [1, 2, 3, 4, 5];
+let newArray2 = array2.slice(1, 3);
+console.log(newArray2);  // Output: [2, 3]
+console.log(array2);     // Original array remains unchanged: [1, 2, 3, 4, 5]
+
+let array3 = [1, 2, 3, 4, 5];
+let removed3 = array3.splice(2, 1);  // Start at index 2, remove 1 element
+console.log(array3);    // Modified array: [1, 2, 4, 5]
+console.log(removed3);  // Output: [3] (the removed elements)
+
+
+
+
+
+
+
